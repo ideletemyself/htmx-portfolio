@@ -1,0 +1,41 @@
+{{define "bloglistContent"}}
+<h1 class='bg-behr-debonair-blue subpixel-antialiased underline decoration-solid font-bold text-center text-4xl 
+           sm:text-6xl py-4 text-med-light-magenta'>
+        The Blogs
+</h1>
+  <div class='flex flex-col py-4 bg-behr-debonair-blue'>
+    <div class='bg-behr-debonair-blue py-4'>
+      <div id='hiku'
+           class='bg-behr-debonair-blue flex flex-wrap justify-center py-8'>
+        <article class='bg-very-light-brown rounded shadow-lg relative prose text-left font-light 
+                        text-slate-500 text-2xl sm:max-xl:text-4xl xl:text-5xl py-8 px-4'>
+          <p>Fingers dance on keys</p>
+          <p>Ideas weave into words</p>
+          <p>Worlds unfold in text</p>
+        </article>
+      </div>
+    </div>
+      <div id='blog-page-cards' class='flex flex-wrap md:flex-row justify-center items-stretch'>
+          {{range .Posts}}
+            <div class='bg-behr-debonair-blue px-2 py-2'>
+              <a href="/content/{{.FileName}}" hx-push-url="true">
+                <article class='prose prose-lg bg-very-light-brown rounded overflow-hidden shadow-lg
+                                text-left leading-snug font-light text-slate-500 max-w-96 max-h-fit'>
+                    <img
+                      class='w-full object-cover rounded'
+                      src="{{.Image}}"
+                      alt='NextJS Logo'
+                    />
+                    <div class="px-4">
+                      <h2 class="text-med-light-magenta leading-tight font-light hover:opacity-60">{{.Title}}</h2>
+                      <p>{{.Description}}</p>
+                      <p>{{.Date.Format "January 2, 2006"}}</p>
+                    </div>
+                </article>
+              </a>
+            </div>
+          {{end}}
+      </div>
+  </div>
+{{end}}
+

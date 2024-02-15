@@ -1,0 +1,10 @@
+{{define "blogpostContent"}}
+<div class='flex flex-col bg-behr-debonair-blue items-center py-4'>
+  <article class='flex flex-wrap w-full justify-center items-center bg-very-light-brown rounded shadow-lg 
+                  prose prose-sm sm:prose-lg prose-h1:text-med-light-magenta prose-h2:text-slate-500 
+                  text-left font-light text-slate-500 py-8 px-4'>    
+    {{.Content | safeHTML}}
+  </article>
+</div>
+{{end}}
+

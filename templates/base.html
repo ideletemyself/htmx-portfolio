@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>{{.Title}}</title>
+    <link rel="stylesheet" href="/static/output.css">
+    <link href="/static/prism.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <script src="/static/htmx.min.js"></script>
+    <script src="/static/prism.js"></script>
+  </head>
+<body>
+        {{if not .IsHTMX}}
+          {{template "header.html" .}}
+        {{end}}
+      <div class="w-full" id="main">
+        {{if eq .PageType "homepage"}}
+            {{template "homepageContent" .}}
+        {{else if eq .PageType "bloglist"}}
+            {{template "bloglistContent" .}}
+        {{else if eq .PageType "blogpost"}}
+            {{template "blogpostContent" .}} 
+        {{end}}
+      </div>
+        {{if not .IsHTMX}}
+          {{template "footer.html" .}}
+        {{end}}
+  </body>
+</html>
+
